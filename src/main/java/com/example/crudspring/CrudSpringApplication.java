@@ -1,13 +1,13 @@
-package spring_back_office.voiture;
+package com.example.crudspring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class VoitureApplication {
+public class CrudSpringApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(VoitureApplication.class, args);
+		SpringApplication.run(CrudSpringApplication.class, args);
 	}
 
 }

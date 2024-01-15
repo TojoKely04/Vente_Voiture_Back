@@ -1,10 +1,10 @@
-package spring_back_office.voiture;
+package com.example.crudspring;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class VoitureApplicationTests {
+class CrudSpringApplicationTests {
 
 	@Test
 	void contextLoads() {
