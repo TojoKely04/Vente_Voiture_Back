@@ -9,47 +9,47 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
 @Entity
-public class Marque{
+public class BoiteVitesse{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	Long idMarque ; 
-	String marque ; 
+	Long idBoiteVitesse ; 
+	String vitesse ; 
 
-	public Marque(){}
+	public BoiteVitesse(){}
 
-	public Marque(Long idMarque , String marque){
-		this.idMarque= idMarque ; 
-		this.= marque; 
+	public BoiteVitesse(Long idBoiteVitesse , String vitesse){
+		this.idBoiteVitesse= idBoiteVitesse ; 
+		this.vitesse= vitesse; 
 	}
 
 	@Override
 	public String toString(){
-		return "Marque { " +
-		"idMarque= "+idMarque+ 
-		" marque = " +marque+ '}';
+		return "BoiteVitesse { " +
+		"idBoiteVitesse= "+idBoiteVitesse+ 
+		" vitesse = " +vitesse+ '}';
 	}
 
-	public Long getIdMarque() {
-        return idMarque;
+	public Long getIdBoiteVitesse() {
+        return idBoiteVitesse;
     }
 
-    public void setIdMarque(Long idMarque) {
-        this.idMarque = idMarque;
+    public void setIdBoiteVitesse(Long idBoiteVitesse) {
+        this.idBoiteVitesse = idBoiteVitesse;
     }
 
-    public String getmarque() {
-        return marque;
+    public String getVitesse() {
+        return vitesse;
     }
 
-    public void setmarque(String marque) {
-        this.marque = marque;
+    public void setVitesse(String vitesse) {
+        this.vitesse = vitesse;
     }
 
     public void supprimer() throws Exception {
         Connection connection = Co.getConnection();
-        String sql = "delete from Marque where idMarque=?";
+        String sql = "delete from vitesse where idVitesse=?";
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setLong(1, this.getIdMarque());
+        statement.setLong(1, this.getIdBoiteVitesse());
         int rowsAffected = statement.executeUpdate();
 
         statement.close();
@@ -59,10 +59,10 @@ public class Marque{
 
     public void modifier() throws Exception {
         Connection connection = Co.getConnection();
-        String sql = "UPDATE Marque SET marque =? WHERE idMarque=?  ";
+        String sql = "UPDATE vitesse SET vitesse =? WHERE idVitesse=?  ";
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, this.getmarque());
-        statement.setLong(2, this.getIdMarque());
+        statement.setString(1, this.getVitesse());
+        statement.setLong(2, this.getIdBoiteVitesse());
         int rowsAffected = statement.executeUpdate();
 
         statement.close();
@@ -71,11 +71,11 @@ public class Marque{
 
     public void insert() throws Exception {
         Connection connection = Co.getConnection();
-        String sql = "insert into marque (marque)VALUES(?)";
+        String sql = "insert into vitesse (vitesse)VALUES(?)";
         PreparedStatement statement = connection.prepareStatement(sql);
         // Set the values of the parameters
 
-        statement.setString(1, this.getmarque());
+        statement.setString(1, this.getVitesse());
 
         // Execute the SQL statement
         int rowsAffected = statement.executeUpdate();
