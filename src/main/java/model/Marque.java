@@ -25,7 +25,7 @@ public class Marque{
 	@Override
 	public String toString(){
 		return "Marque { " +
-		"idMarque= "+idMarque+ 
+		"id= "+idMarque+ 
 		" marque = " +marque+ '}';
 	}
 

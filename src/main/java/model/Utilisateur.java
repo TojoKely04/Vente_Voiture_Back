@@ -1,7 +1,15 @@
+package model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import Connection.Co;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+
 @Entity
 public class Utilisateur{
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long idUtilisateur; 
 	String nom; 
 	String prenom; 

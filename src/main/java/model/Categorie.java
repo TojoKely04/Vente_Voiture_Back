@@ -1,3 +1,13 @@
+package model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import Connection.Co;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+
 @Entity
 public class Categorie{
 	@Id
@@ -15,7 +25,7 @@ public class Categorie{
 	@Override
 	public String toString(){
 		return "Categorie { " +
-		"idCategorie= "+idCategorie+ 
+		"id= "+idCategorie+ 
 		" nom = " +nom+ '}';
 	}
 

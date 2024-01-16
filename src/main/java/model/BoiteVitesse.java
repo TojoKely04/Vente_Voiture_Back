@@ -25,7 +25,7 @@ public class BoiteVitesse{
 	@Override
 	public String toString(){
 		return "BoiteVitesse { " +
-		"idBoiteVitesse= "+idBoiteVitesse+ 
+		"id= "+idBoiteVitesse+ 
 		" vitesse = " +vitesse+ '}';
 	}
 

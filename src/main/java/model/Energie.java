@@ -25,7 +25,7 @@ public class Energie{
 	@Override
 	public String toString(){
 		return "Energie { " +
-		"idEnergie= "+idEnergie+ 
+		"id= "+idEnergie+ 
 		" energie = " +energie+ '}';
 	}
 
