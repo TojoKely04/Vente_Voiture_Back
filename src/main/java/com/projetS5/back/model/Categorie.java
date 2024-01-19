@@ -1,4 +1,4 @@
-package model;
+package com.projetS5.back.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Categorie{
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long idCategorie ; 
 	String categorie ; 
 

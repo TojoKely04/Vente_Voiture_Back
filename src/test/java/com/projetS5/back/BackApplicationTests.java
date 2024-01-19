@@ -1,10 +1,10 @@
-package com.example.crudspring;
+package com.projetS5.back;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CrudSpringApplicationTests {
+class BackApplicationTests {
 
 	@Test
 	void contextLoads() {
