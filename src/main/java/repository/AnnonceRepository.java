@@ -1,11 +1,11 @@
-package org.project.clouds5_backend.repository;
+package service;
 
-import org.project.clouds5_backend.model.Annonce;
+import model.Annonces;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface AnnonceRepository extends JpaRepository<Annonces, String> {
+public interface AnnonceRepository extends JpaRepository<Annonces, Long> {
     List<Annonces> findByEtatNot(Integer etat);
-    Annonces findByIdAnnonceAndEtatNot(String id, Integer etat);
+    Annonces findByIdAnnonceAndEtatNot(Long id, Integer etat);
 }

@@ -1,8 +1,8 @@
-package org.project.clouds5_backend.service;
+package service;
 
-import org.project.clouds5_backend.model.Annonce;
-import org.project.clouds5_backend.repository.AnnonceRepository;
+import repository.AnnonceRepository;
 import org.springframework.stereotype.Service;
+import model.Annonces;
 
 import java.util.Collections;
 import java.util.List;
@@ -25,7 +25,7 @@ public class AnnoncesService {
         }
     }
 
-    public Annonces getAnnonceById(String id) {
+    public Annonces getAnnonceById(Long id) {
         Annonces annonce = annonceRepository.findByIdAnnonceAndEtatNot(id, 10);
         if(annonce == null) {
             return null;
@@ -42,7 +42,7 @@ public class AnnoncesService {
         }
     }
 
-    public Annonces updateAnnonceById(String id, Annonces annonce) {
+    public Annonces updateAnnonceById(Long id, Annonces annonce) {
         Optional<Annonces> optionalAnnonce = Optional.ofNullable(annonceRepository.findByIdAnnonceAndEtatNot(id, 10));
         if(optionalAnnonce.isPresent()){
             Annonces annonceToUpdate = optionalAnnonce.get();
@@ -50,12 +50,13 @@ public class AnnoncesService {
             annonceToUpdate.setDescription(annonce.getDescription());
             annonceToUpdate.setIdCategorie(annonce.getIdCategorie());
             annonceToUpdate.setIdMarque(annonce.getIdMarque()); 
-            annonceToUpdate.setIdCouleur(annonce.getIdCouleur()); 
+            annonceToUpdate.setCouleur(annonce.getCouleur()); 
             annonceToUpdate.setIdMoteur(annonce.getIdMoteur()); 
             annonceToUpdate.setAnnee(annonce.getAnnee()); 
             annonceToUpdate.setIdBoiteVitesse(annonce.getidBoiteVitesse());
             annonceToUpdate.setIdEnergie(annonce.getIdEnergie()); 
             annonceToUpdate.setPrix(annonce.getPrix()); 
+            annonceToUpdate.setImage(annonce.getImage());
             annonceToUpdate.setDatePublication(annonce.getDatePublication());
             annonceRepository.save(annonceToUpdate); 
             return annonceToUpdate;
@@ -65,7 +66,7 @@ public class AnnoncesService {
         }
     }
 
-    public Annonces deleteAnnonceById(String id) {
+    public Annonces deleteAnnonceById(Long id) {
         Optional<Annonces> optionalAnnonce = Optional.ofNullable(annonceRepository.findByIdAnnonceAndEtatNot(id, 10));
         if(optionalAnnonce.isPresent()){
             Annonces annonceToDelete = optionalAnnonce.get();

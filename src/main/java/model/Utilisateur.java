@@ -1,32 +1,36 @@
 package model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-
-import Connection.Co;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Utilisateur{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	Long idUtilisateur; 
 	String nom; 
 	String prenom; 
 	String email; 
-	String adresse ; 
-	String password ; 
-	int contact ; 
+	String adresse; 
+	String passwords; 
+	int contact; 
 	Boolean isAdmin ; 
 
-	public Utilisateur(){}
+	public Utilisateur(Long idUtilisateur, String nom, String prenom, String email, String adresse, String passwords,
+            int contact, Boolean isAdmin) {
+        this.idUtilisateur = idUtilisateur;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.adresse = adresse;
+        this.passwords = passwords;
+        this.contact = contact;
+        this.isAdmin = isAdmin;
+    }
 
-	public Utilisateur(Long idUtilisateur , String email , String password){
-		this.idUtilisateur= idUtilisateur; 
-		this.email = email ; 
-		this.password = password; 
-	}
-
+    public Utilisateur(){}
 
 	@Override
 	public String toString (){
@@ -36,12 +40,12 @@ public class Utilisateur{
 			", prenom= " +prenom+
 			", email= " +email+
 			", adresse = " +adresse+
-			" , password= " +password+
+			" , password= " +passwords+
 			", contact =" +contact+
 			", isAdmin= " +isAdmin +
 			'}';
 	}
-	
+
     public Long getIdUtilisateur() {
         return idUtilisateur;
     }
@@ -82,12 +86,12 @@ public class Utilisateur{
         this.adresse = adresse;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPasswords() {
+        return passwords;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswords(String passwords) {
+        this.passwords = passwords;
     }
 
     public int getContact() {
@@ -105,6 +109,7 @@ public class Utilisateur{
     public void setIsAdmin(Boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
+	
         
         
 }
