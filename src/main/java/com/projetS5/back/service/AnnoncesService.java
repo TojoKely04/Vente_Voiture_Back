@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projetS5.back.model.Annonces;
+import com.projetS5.back.model.StatiqueMarque;
 import com.projetS5.back.repository.AnnonceRepository;
 
 @Service
@@ -14,7 +15,6 @@ public class AnnoncesService {
 
     @Autowired
     private AnnonceRepository annonceRepository;
-
 
     public List<Annonces> findAll() {
         return annonceRepository.findAll();
@@ -31,5 +31,9 @@ public class AnnoncesService {
     public void deleteById(Long id) {
         annonceRepository.deleteById(id);
     }
-    
+
+    // public List<StatiqueMarque> getAllIdAnnonceVendu() {
+    // return annonceRepository.getAllIdAnnonceVendu(); // ;
+    // }
+
 }

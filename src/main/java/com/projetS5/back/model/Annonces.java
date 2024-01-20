@@ -18,41 +18,41 @@ import jakarta.persistence.Table;
 public class Annonces {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idAnnonces")
+    @Column(name = "idannonces")
     private Long idAnnonce;
-    
+
     @ManyToOne
-    @JoinColumn(name="idUtilisateur")
+    @JoinColumn(name = "idUtilisateur")
     private Utilisateur utilisateur;
-    
+
     private String nom;
-    
+
     private String descriptions;
-    
+
     @ManyToOne
-    @JoinColumn(name="idCategorie")
+    @JoinColumn(name = "idCategorie")
     private Categorie categorie;
 
     @ManyToOne
-    @JoinColumn(name="idMarque")
+    @JoinColumn(name = "idMarque")
     private Marque marque;
 
     private String couleur;
 
     @ManyToOne
-    @JoinColumn(name="idMoteur")
+    @JoinColumn(name = "idMoteur")
     private Moteur moteur;
 
     private Date anneeSortie;
 
     @ManyToOne
-    @JoinColumn(name="idVitesse")
+    @JoinColumn(name = "idVitesse")
     private BoiteVitesse boiteVitesse;
-    
+
     @ManyToOne
-    @JoinColumn(name="idEnergie")
+    @JoinColumn(name = "idEnergie")
     private Energie energie;
-    
+
     private double prix;
     private String images;
     private Date datePublication;
@@ -78,7 +78,6 @@ public class Annonces {
         this.images = images;
         this.datePublication = datePublication;
     }
-
 
     public Long getIdAnnonce() {
         return idAnnonce;
@@ -201,6 +200,4 @@ public class Annonces {
                 + datePublication + "]";
     }
 
-
-    
 }
