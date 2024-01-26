@@ -14,7 +14,7 @@ public class StatistiqueDatesController {
     @Autowired
     private StatistiqueDateService dateService;
 
-    @GetMapping("/date")
+    @GetMapping
     public java.util.List<StatistiqueDate> getAllDates() {
         return dateService.getAllDate();
     }

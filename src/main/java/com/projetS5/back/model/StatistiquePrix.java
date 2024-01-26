@@ -7,8 +7,6 @@ import jakarta.persistence.Id;
 @Entity 
 public class StatistiquePrix {
     @Id
-
-
     @Column(name = "prix")
     double prix;
 

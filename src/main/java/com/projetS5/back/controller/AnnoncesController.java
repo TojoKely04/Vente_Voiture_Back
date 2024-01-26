@@ -23,8 +23,8 @@ public class AnnoncesController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Annonces> findById(@PathVariable Long id) {
-        return ResponseEntity.ok(annoncesService.findById(id));
+    public Annonces findById(@PathVariable Long id) {
+        return annoncesService.findById(id);
     }
 
     // create a book

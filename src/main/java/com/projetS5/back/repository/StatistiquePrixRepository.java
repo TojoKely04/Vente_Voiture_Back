@@ -10,7 +10,7 @@ import com.projetS5.back.model.StatistiquePrix;
 
 @Repository
 
-public interface StatistiquePrixRepository extends JpaRepository <StatistiquePrix, Long>{
+public interface StatistiquePrixRepository extends JpaRepository <StatistiquePrix, Double>{
      @Query(value = "select *from  statistiqueprix", nativeQuery = true)
     List<StatistiquePrix> getAllPrix();
 
