@@ -57,6 +57,10 @@ public class Annonces {
     private String images;
     private Date datePublication;
 
+    public Annonces(Long idAnnonce) {
+        this.idAnnonce = idAnnonce;
+    }
+
     public Annonces() {
     }
 

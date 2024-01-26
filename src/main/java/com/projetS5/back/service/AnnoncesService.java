@@ -14,6 +14,9 @@ public class AnnoncesService {
     @Autowired
     private AnnonceRepository annonceRepository;
 
+    public List<Annonces> getAnnoncesNonLus() {
+        return annonceRepository.getAnnoncesNonLus();
+    }
 
     public List<Annonces> findAll() {
         return annonceRepository.findAll();

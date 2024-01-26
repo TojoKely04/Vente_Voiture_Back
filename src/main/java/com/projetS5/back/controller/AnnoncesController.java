@@ -22,6 +22,11 @@ public class AnnoncesController {
         return annoncesService.findAll();
     }
 
+    @GetMapping("/nonLus")
+    public List<Annonces> getAnnoncesNonLus() {
+        return annoncesService.getAnnoncesNonLus();
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Annonces> findById(@PathVariable Long id) {
         return ResponseEntity.ok(annoncesService.findById(id));

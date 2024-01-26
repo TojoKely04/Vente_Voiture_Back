@@ -14,6 +14,7 @@ create table utilisateur (
 INSERT INTO utilisateur VALUES(default , 'Randria' , 'Tojo', 'tojo@gmail.com' , 'Andravoahangy' , 'tojo', 123456789 , true);
 INSERT INTO utilisateur VALUES(default , 'Nomenjanahary' , 'Rova', 'rova@gmail.com' , 'Tanjombato' , 'rova', 123456789 , false);
 INSERT INTO utilisateur VALUES(default , 'Rasoanaivo' , 'Ilo', 'ilo@gmail.com' , 'Andravoahangy' , 'tojo', 123456789 , false);
+INSERT INTO utilisateur VALUES(default , 'Rakoto' , 'Ilo', 'ilo@gmail.com' , 'Andravoahangy' , 'tojo', 123456789 , false);
 
 create table categorie (
     idCategorie serial PRIMARY KEY, 
@@ -79,20 +80,28 @@ create table annonces(
 ) ; 
 INSERT INTO annonces VALUES (default , 2 , 'Voiture 1' , 'Description 1' , 1 , 1 , 'Rouge' , 1 , '01-01-2012' , 1 , 1 , 2000, 'Image 1' , '2023-01-19');
 INSERT INTO annonces VALUES (default , 3 , 'Voiture 2' , 'Description 2' , 2 , 2 , 'Bleu' , 2 , '01-01-2012' , 2 , 2 , 2000, 'Image 2' , '2023-01-19');
+INSERT INTO annonces VALUES (default , 3 , 'Voiture 3' , 'Description 3' , 2 , 2 , 'Noir' , 2 , '01-01-2012' , 2 , 2 , 2000, 'Image 2' , '2023-01-19');
 
 create table AnnonceAccepter(
     idAnnonceAccepte serial PRIMARY KEY , 
     idAnnonces int , 
     FOREIGN KEY (idAnnonces) REFERENCES annonces(idAnnonces)
 );
-INSERT INTO AnnonceAccepter VALUES(default,1);
+INSERT INTO AnnonceAccepter VALUES(default,10);
 INSERT INTO AnnonceAccepter VALUES(default,2);
+
 
 create table AnnonceRefuser(
     idAnnonceRefuser serial PRIMARY KEY , 
     idAnnonces int , 
     FOREIGN KEY (idAnnonces) REFERENCES annonces(idAnnonces)
 );
+
+CREATE VIEW AnnoncesNonLues AS
+SELECT * FROM Annonces where 
+idAnnonces not in(SELECT idAnnonces from AnnonceRefuser) and 
+idAnnonces not in (SELECT idAnnonces from AnnonceAccepter);  
+
 
 create table favoris (
     idFavoris serial PRIMARY KEY, 
