@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.projetS5.back.model.Annonces;
 
-@Repository
 public interface AnnonceRepository extends JpaRepository<Annonces, Long> {
 
 }

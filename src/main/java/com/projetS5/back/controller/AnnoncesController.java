@@ -5,6 +5,7 @@ import com.projetS5.back.service.AnnoncesService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,8 +24,8 @@ public class AnnoncesController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Annonces> findById(@PathVariable Long id) {
-        return annoncesService.findById(id);
+    public ResponseEntity<Annonces> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(annoncesService.findById(id));
     }
 
     // create a book

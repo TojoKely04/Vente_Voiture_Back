@@ -20,8 +20,8 @@ public class AnnoncesService {
         return annonceRepository.findAll();
     }
 
-    public Optional<Annonces> findById(Long id) {
-        return annonceRepository.findById(id);
+    public Annonces findById(Long id) {
+        return annonceRepository.findById(id).orElse(null);
     }
 
     public Annonces save(Annonces book) {
