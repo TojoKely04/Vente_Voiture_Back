@@ -130,3 +130,5 @@ select * from statistiqueprix;
 
 alter table annoncevendu add Column dates date;
 UPDATE annoncevendu set dates ='2015-05-15'; 
+
+-- tojo
