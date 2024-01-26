@@ -111,23 +111,16 @@ INSERT INTO AnnonceVendu VALUES(default , 1);
 
 
 CREATE VIEW annonces_vendus AS
-      SELECT m.idmarque, marq.marque, COUNT(m.idmarque)
-      FROM AnnonceVendu a
-      JOIN Annonces m ON a.idannonces = m.idannonces
-      JOIN Marque marq ON m.idmarque = marq.idmarque
-      WHERE a.idannoncevendu IS NOT NULL
-    GROUP BY m.idmarque, marq.marque;
+SELECT m.idmarque, marq.marque, COUNT(m.idmarque)
+FROM AnnonceVendu a
+JOIN Annonces m ON a.idannonces = m.idannonces
+JOIN Marque marq ON m.idmarque = marq.idmarque
+WHERE a.idannoncevendu IS NOT NULL
+GROUP BY m.idmarque, marq.marque;
 
 select * from annonces_vendus;
 
-
-CREATE VIEw statistiquePrix as 
-    SELECT av.annoncevendu, p.prix , Count(av.annoncevendu)
-    from AnnonceVendu a
-    JOIN annonces m on a.idannonces=m.idannonces
-    Join 
-
- CREATE VIEW statistiquePrix AS
+CREATE VIEW statistiquePrix AS
 SELECT a.prix, COUNT(av.idannoncevendu) AS countannoncevendu
 FROM AnnonceVendu av
 JOIN annonces a ON av.idannonces = a.idannonces
