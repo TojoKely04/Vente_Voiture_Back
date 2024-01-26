@@ -11,7 +11,7 @@ import com.projetS5.back.model.StatistiqueDate;
 
 @Repository
 public interface StatistiqueDateRepository extends JpaRepository<StatistiqueDate, Long> {
-    @Query(value = "select *from statistiquedate", nativeQuery = true)
+    @Query(value = "select * from statistiqueDates", nativeQuery = true)
     List<StatistiqueDate> getAllDate();
 
 }

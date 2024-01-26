@@ -12,36 +12,30 @@ import jakarta.persistence.Id;
 public class StatistiqueDate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long idannoncevendu;
     @Column(name = "dates")
     Date dates;
-    @Column(name = "countannoncevendu")
-    double countannoncevendu;
+    @Column(name = "nombre_annonces")
+    double nombrennonces;
     
-    public StatistiqueDate(Long idannoncevendu, Date dates, double countannoncevendu) {
-        this.idannoncevendu = idannoncevendu;
+    public StatistiqueDate( Date dates, double nombrennonces) {
+       
         this.dates = dates;
-        this.countannoncevendu = countannoncevendu;
+        this.nombrennonces = nombrennonces;
     }
     public StatistiqueDate() {
-    }
-    public Long getIdannoncevendu() {
-        return idannoncevendu;
-    }
-    public void setIdannoncevendu(Long idannoncevendu) {
-        this.idannoncevendu = idannoncevendu;
     }
     public Date getDates() {
         return dates;
     }
+    public double getNombrennonces() {
+        return nombrennonces;
+    }
+    public void setNombrennonces(double nombrennonces) {
+        this.nombrennonces = nombrennonces;
+    }
+
     public void setDates(Date dates) {
         this.dates = dates;
-    }
-    public double getCountannoncevendu() {
-        return countannoncevendu;
-    }
-    public void setCountannoncevendu(double countannoncevendu) {
-        this.countannoncevendu = countannoncevendu;
     }
 
 }
