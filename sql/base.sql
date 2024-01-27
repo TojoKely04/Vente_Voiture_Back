@@ -96,13 +96,52 @@ create table AnnonceRefuser(
     idAnnonces int , 
     FOREIGN KEY (idAnnonces) REFERENCES annonces(idAnnonces)
 );
-
+-------------------------------------------------------------------------
 CREATE VIEW AnnoncesNonLues AS
 SELECT * FROM Annonces where 
 idAnnonces not in(SELECT idAnnonces from AnnonceRefuser) and 
 idAnnonces not in (SELECT idAnnonces from AnnonceAccepter);  
 
+create table annonces(
+    idAnnonces serial PRIMARY KEY , 
+    idUtilisateur int , 
+    nom varchar (200), 
+    descriptions varchar(200), 
+    idCategorie int, 
+    idMarque int, 
+    couleur VARCHAR(255), 
+    idMoteur int, 
+    anneeSortie date , 
+    idVitesse int , 
+    idEnergie int , 
+    prix double precision,
+    images varchar(200) ,
+    datePublication date ,  
 
+    FOREIGN KEY (idEnergie) REFERENCES energie(idEnergie), 
+    FOREIGN KEY (idVitesse) REFERENCES vitesse(idVitesse), 
+    FOREIGN KEY (idMoteur) REFERENCES moteur(idMoteur),
+    FOREIGN KEY (idMarque) REFERENCES marque(idMarque), 
+    FOREIGN KEY (idCategorie) REFERENCES categorie(idCategorie),
+    FOREIGN KEY (idUtilisateur) REFERENCES utilisateur(idUtilisateur)
+) ; 
+-------------------------------------------------------------------------
+
+create table historique (
+    idHistorique serial PRIMARY KEY , 
+    idUtilisateur int , 
+    idAnnonces int, 
+
+    FOREIGN KEY (idUtilisateur) REFERENCES utilisateur(idUtilisateur), 
+    FOREIGN KEY (idAnnonces) REFERENCES Annonces(idAnnonces)
+);
+SELECT * FROM Annonces where idUtilisateur = 3;
+
+SELECT Annonces.idUtilisateur,  Annonces.nom ,  Annonces.descriptions, Annonces.idCategorie , Annonces.idMarque, 
+Annonces.couleur, Annonces.idMoteur, Annonces.anneeSortie , Annonces.idVitesse, Annonces.idEnergie , Annonces.prix, Annonces.images , Annonces.datePublication FROM Annonces join utilisateur 
+on Annonces.idUtilisateur = utilisateur.idUtilisateur where utilisateur.idUtilisateur=3; 
+
+--------------------------------------------------------------------------
 create table favoris (
     idFavoris serial PRIMARY KEY, 
     idUtilisateur int ,
