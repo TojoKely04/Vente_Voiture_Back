@@ -7,8 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.projetS5.back.model.Annonces;
 import com.projetS5.back.model.StatiqueMarque;
+import com.projetS5.back.model.Utilisateur;
 
 public interface AnnonceRepository extends JpaRepository<Annonces, Long> {
     @Query(value = "select *from  AnnoncesNonLues", nativeQuery = true)
     List<Annonces> getAnnoncesNonLus();
+
+    List<Annonces> findByutilisateur(Utilisateur utilisateur);
 }
+
+

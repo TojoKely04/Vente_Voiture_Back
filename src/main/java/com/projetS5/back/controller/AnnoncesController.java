@@ -1,7 +1,9 @@
 package com.projetS5.back.controller;
 
 import com.projetS5.back.model.Annonces;
+import com.projetS5.back.model.Utilisateur;
 import com.projetS5.back.service.AnnoncesService;
+import com.projetS5.back.service.UtilisateurService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,6 +32,13 @@ public class AnnoncesController {
     @GetMapping("/{id}")
     public ResponseEntity<Annonces> findById(@PathVariable Long id) {
         return ResponseEntity.ok(annoncesService.findById(id));
+    }
+
+    @GetMapping("/Utilisateur/{id}")
+    public List<Annonces> getAnnoncesUtilisateurs(@PathVariable Long id) {
+        Utilisateur u = new Utilisateur();
+        u.setIdUtilisateur(id);
+        return annoncesService.findByUtilisateur(u);
     }
 
     // create a book
