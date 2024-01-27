@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.projetS5.back.model.Annonces;
-import com.projetS5.back.model.StatiqueMarque;
 import com.projetS5.back.model.Utilisateur;
 
 public interface AnnonceRepository extends JpaRepository<Annonces, Long> {

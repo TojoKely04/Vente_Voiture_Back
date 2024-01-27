@@ -149,6 +149,11 @@ create table favoris (
     FOREIGN KEY (idUtilisateur) REFERENCES utilisateur (idUtilisateur), 
     FOREIGN KEY (idAnnonces) REFERENCES annonces (idAnnonces) 
 );
+INSERT INTO favoris VALUES(default , 2 ,1);
+INSERT INTO favoris VALUES(default , 3 ,2);
+INSERT INTO favoris VALUES(default , 3 ,3);
+
+
 
 create table AnnonceVendu (
     idAnnonceVendu serial PRIMARY KEY , 
@@ -186,3 +191,7 @@ CREATE VIEW statistiqueDates AS
     SELECT dates, COUNT(dates) AS nombre_annonces
     FROM annoncevendu
     GROUP BY dates;
+
+SELECT a.*
+FROM annonces as a
+JOIN favoris as f on a.idannonces = f.idannonces where a.idannonces = f.idannonces and a.idUtilisateur = 2;
