@@ -14,7 +14,7 @@ public class StatistiquePrixController {
     @Autowired
     private StatistiquePrixService prixService;
 
-    @GetMapping("/{statistiquePrix}/vendu")
+    @GetMapping
     public  java.util.List<StatistiquePrix> getAllPrix(){
         return prixService.getAllPrix();
     }

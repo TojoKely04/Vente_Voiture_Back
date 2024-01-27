@@ -160,7 +160,7 @@ INSERT INTO annoncevendu VALUES(default , 2,'2016-01-17');
 INSERT INTO annoncevendu VALUES(default , 2,'2016-01-17');
 
 
-CREATE VIEW annonces_vendus AS
+CREATE OR REPLACE VIEW annonces_vendus AS
 SELECT m.idmarque, marq.marque, COUNT(m.idmarque)
 FROM AnnonceVendu a
 JOIN Annonces m ON a.idannonces = m.idannonces
@@ -176,11 +176,6 @@ FROM AnnonceVendu av
 JOIN annonces a ON av.idannonces = a.idannonces
 GROUP BY a.prix;
 
-CREATE VIEW statistiqueDates AS
-    SELECT a.dates, COUNT(DISTINCT m.idannonces) AS nombre_voitures_vendues
-    FROM annoncevendu a
-    JOIN annonces m ON a.idannonces = m.idannonces
-    GROUP BY a.dates;
 
 select * from statistiqueprix;   
 
@@ -191,8 +186,3 @@ CREATE VIEW statistiqueDates AS
     SELECT dates, COUNT(dates) AS nombre_annonces
     FROM annoncevendu
     GROUP BY dates;
-
--- select dates,count(dates) from annoncevendu group by dates;
-
--- tojo 
-

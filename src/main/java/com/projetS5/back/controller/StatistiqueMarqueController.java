@@ -14,7 +14,7 @@ public class StatistiqueMarqueController {
     @Autowired
     private StatiqueMarqueService marqueService;
 
-    @GetMapping("/{id}/vendu")
+    @GetMapping
     public java.util.List<StatiqueMarque> getAllIdMarqueVendu() {
         return marqueService.getAllIdMarqueVendu();
     }

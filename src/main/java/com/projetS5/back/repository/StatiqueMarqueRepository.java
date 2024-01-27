@@ -11,7 +11,7 @@ import com.projetS5.back.model.StatiqueMarque;
 @Repository
 public interface StatiqueMarqueRepository extends JpaRepository<StatiqueMarque, Long> {
 
-    @Query(value = "select *from  annonces_vendes", nativeQuery = true)
+    @Query(value = "select *from  annonces_vendus", nativeQuery = true)
     List<StatiqueMarque> getAllIdMarqueVendu();
 
 }
