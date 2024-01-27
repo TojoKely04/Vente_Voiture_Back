@@ -1,6 +1,7 @@
 package com.projetS5.back.controller;
 
 import com.projetS5.back.model.Annonces;
+import com.projetS5.back.model.Utilisateur;
 import com.projetS5.back.service.AnnoncesService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,13 @@ public class AnnoncesController {
         return annoncesService.findById(id);
     }
 
+    @GetMapping("/Utilisateur/{id}")
+    public List<Annonces> getAnnoncesUtilisateurs(@PathVariable Long id) {
+        Utilisateur u = new Utilisateur();
+        u.setIdUtilisateur(id);
+        return annoncesService.findByUtilisateur(u);
+    }
+
     // create a book
     @ResponseStatus(HttpStatus.CREATED) // 201
     @PostMapping
@@ -52,10 +60,15 @@ public class AnnoncesController {
     public void deleteById(@PathVariable Long id) {
         annoncesService.deleteById(id);
     }
-
+  
     @GetMapping("/annonceValideDispo")
     public List<Annonces> getAnnonceDispo(){
         return  annoncesService.getAnnonceDispo();
+
+    @GetMapping("Userfavoris/{id}")
+    public List<Annonces> findFavorisByUser(@PathVariable Long id) {
+        return annoncesService.findFavorisByUser(id);
+
     }
     
 

@@ -10,8 +10,9 @@ import com.projetS5.back.repository.StatistiquePrixRepository;
 
 @Service
 public class StatistiquePrixService {
-    private StatistiquePrixRepository statistiquePrixRepository;
     @Autowired
+    private StatistiquePrixRepository statistiquePrixRepository;
+    
     public StatistiquePrixService(StatistiquePrixRepository statistiquePrixRepository) {
         this.statistiquePrixRepository = statistiquePrixRepository;
     }

@@ -10,8 +10,9 @@ import com.projetS5.back.repository.StatistiqueDateRepository;
 
 @Service
 public class StatistiqueDateService {
-    private StatistiqueDateRepository statistiqueDateRepository;
     @Autowired
+    private StatistiqueDateRepository statistiqueDateRepository;
+    
     public StatistiqueDateService(StatistiqueDateRepository statistiqueDateRepository) {
         this.statistiqueDateRepository = statistiqueDateRepository;
     }
