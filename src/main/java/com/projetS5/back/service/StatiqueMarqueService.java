@@ -11,9 +11,9 @@ import com.projetS5.back.repository.StatiqueMarqueRepository;
 @Service
 public class StatiqueMarqueService {
 
-    private StatiqueMarqueRepository statiqueMarqueRepository;
-
     @Autowired
+    private StatiqueMarqueRepository statiqueMarqueRepository;
+    
     public StatiqueMarqueService(StatiqueMarqueRepository statiqueMarqueRepository) {
         this.statiqueMarqueRepository = statiqueMarqueRepository;
     }
