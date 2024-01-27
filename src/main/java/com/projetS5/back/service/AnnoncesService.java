@@ -41,6 +41,7 @@ public class AnnoncesService {
 
     public List<Annonces> getAnnonceDispo() {
         return annonceRepository.getAnnonceDispo();
+    }
   
     public List<Annonces> findFavorisByUser(Long id) {
         return  annonceRepository.findFavorisByUser(id);

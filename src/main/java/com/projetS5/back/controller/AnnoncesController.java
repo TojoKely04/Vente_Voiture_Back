@@ -64,6 +64,7 @@ public class AnnoncesController {
     @GetMapping("/annonceValideDispo")
     public List<Annonces> getAnnonceDispo(){
         return  annoncesService.getAnnonceDispo();
+    }
 
     @GetMapping("Userfavoris/{id}")
     public List<Annonces> findFavorisByUser(@PathVariable Long id) {
