@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/annonces")
 public class AnnoncesController {
@@ -25,6 +26,7 @@ public class AnnoncesController {
     public List<Annonces> getAnnoncesNonLus() {
         return annoncesService.getAnnoncesNonLus();
     }
+
 
     @GetMapping("/{id}")
     public Annonces findById(@PathVariable Long id) {
@@ -50,5 +52,11 @@ public class AnnoncesController {
     public void deleteById(@PathVariable Long id) {
         annoncesService.deleteById(id);
     }
+
+    @GetMapping("/annonceValideDispo")
+    public List<Annonces> getAnnonceDispo(){
+        return  annoncesService.getAnnonceDispo();
+    }
+    
 
 }

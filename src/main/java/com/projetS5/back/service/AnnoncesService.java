@@ -33,5 +33,9 @@ public class AnnoncesService {
     public void deleteById(Long id) {
         annonceRepository.deleteById(id);
     }
+
+    public List<Annonces> getAnnonceDispo() {
+        return annonceRepository.getAnnonceDispo();
+    }
     
 }
