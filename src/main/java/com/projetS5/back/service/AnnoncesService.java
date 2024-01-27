@@ -30,14 +30,17 @@ public class AnnoncesService {
     public List <Annonces> findByUtilisateur(Utilisateur user) {
         return annonceRepository.findByutilisateur(user);
     }
-
-    
+ 
     public Annonces save(Annonces book) {
         return annonceRepository.save(book);
     }
 
     public void deleteById(Long id) {
         annonceRepository.deleteById(id);
+    }
+
+    public List<Annonces> findFavorisByUser(Long id) {
+        return  annonceRepository.findFavorisByUser(id);
     }
     
 }

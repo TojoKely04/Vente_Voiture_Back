@@ -3,13 +3,13 @@ package com.projetS5.back.controller;
 import com.projetS5.back.model.Annonces;
 import com.projetS5.back.model.Utilisateur;
 import com.projetS5.back.service.AnnoncesService;
-import com.projetS5.back.service.UtilisateurService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/annonces")
@@ -59,5 +59,11 @@ public class AnnoncesController {
     public void deleteById(@PathVariable Long id) {
         annoncesService.deleteById(id);
     }
+
+    @GetMapping("Userfavoris/{id}")
+    public List<Annonces> findFavorisByUser(@PathVariable Long id) {
+        return annoncesService.findFavorisByUser(id);
+    }
+    
 
 }

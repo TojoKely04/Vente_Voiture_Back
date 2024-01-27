@@ -192,6 +192,4 @@ CREATE VIEW statistiqueDates AS
     FROM annoncevendu
     GROUP BY dates;
 
-SELECT a.*
-FROM annonces as a
-JOIN favoris as f on a.idannonces = f.idannonces where a.idannonces = f.idannonces and a.idUtilisateur = 2;
+SELECT a.* FROM annonces as a JOIN favoris as f on a.idannonces = f.idannonces where a.idannonces = f.idannonces and a.idUtilisateur = 2;
