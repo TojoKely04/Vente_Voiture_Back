@@ -28,6 +28,7 @@ public class AnnoncesController {
         return annoncesService.getAnnoncesNonLus();
     }
 
+
     @GetMapping("/{id}")
     public Annonces findById(@PathVariable Long id) {
         return annoncesService.findById(id);
@@ -59,10 +60,15 @@ public class AnnoncesController {
     public void deleteById(@PathVariable Long id) {
         annoncesService.deleteById(id);
     }
+  
+    @GetMapping("/annonceValideDispo")
+    public List<Annonces> getAnnonceDispo(){
+        return  annoncesService.getAnnonceDispo();
 
     @GetMapping("Userfavoris/{id}")
     public List<Annonces> findFavorisByUser(@PathVariable Long id) {
         return annoncesService.findFavorisByUser(id);
+
     }
     
 

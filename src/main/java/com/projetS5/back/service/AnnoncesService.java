@@ -39,8 +39,12 @@ public class AnnoncesService {
         annonceRepository.deleteById(id);
     }
 
+    public List<Annonces> getAnnonceDispo() {
+        return annonceRepository.getAnnonceDispo();
+  
     public List<Annonces> findFavorisByUser(Long id) {
         return  annonceRepository.findFavorisByUser(id);
+
     }
     
 }

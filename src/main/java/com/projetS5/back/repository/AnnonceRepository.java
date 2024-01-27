@@ -13,11 +13,15 @@ public interface AnnonceRepository extends JpaRepository<Annonces, Long> {
     @Query(value = "select * from  AnnoncesNonLues", nativeQuery = true)
     List<Annonces> getAnnoncesNonLus();
 
+    @Query(value = "select * from annonceDispo", nativeQuery = true)
+    public List<Annonces> getAnnonceDispo();
+
     List<Annonces> findByutilisateur(Utilisateur utilisateur);
 
     @Query(value = "SELECT a.* FROM annonces as a JOIN favoris as f on a.idannonces = f.idannonces where a.idannonces = f.idannonces and a.idUtilisateur = :idUser",nativeQuery= true)
     List<Annonces> findFavorisByUser(@Param("idUser") Long idUser);
     
+
 }
 
 
