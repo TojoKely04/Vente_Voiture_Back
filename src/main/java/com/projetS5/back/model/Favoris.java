@@ -1,17 +1,38 @@
 package com.projetS5.back.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table (name = "favoris")
 public class Favoris {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idFavoris;
+
+    @ManyToOne
+    @JoinColumn(name="idUtilisateur")
     private Utilisateur user;
-    private Long idAnnonce;
+
+    @ManyToOne
+    @JoinColumn(name="idAnnonces")
+    private Annonces annonce;
+
+    public Favoris(long idFavoris, Utilisateur user, Annonces annonce) {
+        this.idFavoris = idFavoris;
+        this.user = user;
+        this.annonce = annonce;
+    }
+
 
     public Favoris(){}
 
-    public  Favoris(Long idFavoris , Utilisateur user, Long idAnnonce) {
-        this.idFavoris = idFavoris;
-        this.user = user;
-        this.idAnnonce = idAnnonce;
-    }
 
     public long getIdFavoris() {
         return idFavoris;
@@ -29,13 +50,16 @@ public class Favoris {
         this.user = user;
     }
 
-    public Long getIdAnnonce() {
-        return idAnnonce;
+
+    public Annonces getAnnonce() {
+        return annonce;
     }
 
-    public void setIdAnnonce(Long idAnnonce) {
-        this.idAnnonce = idAnnonce;
+
+    public void setAnnonce(Annonces annonce) {
+        this.annonce = annonce;
     }
+
 
     
 }
