@@ -18,7 +18,7 @@ public class FavorisController {
     @Autowired 
     private  FavorisService favorisService;
 
-    @PostMapping ("/Favoris/{idUser}/{idAnnonces}")
+    @PostMapping  ("/Favoris/{idUser}/{idAnnonces}")
     public Favoris save(@PathVariable Long idUser, @PathVariable Long idAnnonces){
         Utilisateur u = new Utilisateur(); 
         u.setIdUtilisateur(idUser);
