@@ -1,6 +1,7 @@
 package com.projetS5.back.controller;
 
 import com.projetS5.back.model.Annonces;
+import com.projetS5.back.model.AnnoncesStatus;
 import com.projetS5.back.model.Utilisateur;
 import com.projetS5.back.service.AnnoncesService;
 
@@ -72,5 +73,8 @@ public class AnnoncesController {
 
     }
     
-
+    @GetMapping("/status/{id}")
+    public List<AnnoncesStatus> getAnnoncesStatusUser(@PathVariable Long id){
+        return annoncesService.getAnnoncesStatus(id);
+    }
 }

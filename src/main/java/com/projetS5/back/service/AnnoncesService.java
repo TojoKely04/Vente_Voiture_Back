@@ -6,15 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projetS5.back.model.Annonces;
+import com.projetS5.back.model.AnnoncesStatus;
 import com.projetS5.back.model.Utilisateur;
 import com.projetS5.back.repository.AnnonceRepository;
+import com.projetS5.back.repository.AnnonceStatusRepository;
 
 @Service
 public class AnnoncesService {
 
     @Autowired
+    private AnnonceStatusRepository annonceStatusRepository;
+
+    public List<AnnoncesStatus> getAnnoncesStatus(Long id){
+        return annonceStatusRepository.findAnnoncesStatusUser(id);
+    }
+
+
+    @Autowired
     private AnnonceRepository annonceRepository;
 
+    
     public List<Annonces> getAnnoncesNonLus() {
         return annonceRepository.getAnnoncesNonLus();
     }
