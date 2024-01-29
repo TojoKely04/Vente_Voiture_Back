@@ -19,13 +19,18 @@ public class AnnoncesAccepter {
     @JoinColumn(name="idannonces")
     private Annonces annonces;
 
+    private double commission;
+
+    public AnnoncesAccepter(Long idAnnonceAccepte, Annonces annonces, double commission) {
+        this.idAnnonceAccepte = idAnnonceAccepte;
+        this.annonces = annonces;
+        this.commission = commission;
+    }
+
+
     public AnnoncesAccepter() {
     }
 
-    public AnnoncesAccepter(Long idAnnonceAccepter, Annonces annonces) {
-        this.idAnnonceAccepte = idAnnonceAccepter;
-        this.annonces = annonces;
-    }
 
     public Long getIdAnnonceAccepte() {
         return idAnnonceAccepte;
@@ -46,6 +51,16 @@ public class AnnoncesAccepter {
     @Override
     public String toString() {
         return "AnnoncesAccepter [idAnnonceAccepte=" + idAnnonceAccepte + ", annonces=" + annonces + "]";
+    }
+
+
+    public double getCommission() {
+        return commission;
+    }
+
+
+    public void setCommission(double commission) {
+        this.commission = commission;
     } 
     
 }

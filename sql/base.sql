@@ -222,3 +222,6 @@ LEFT JOIN
     annonceAccepter aa ON a.idannonces = aa.idannonces
 LEFT JOIN 
     annoncevendu av ON a.idannonces = av.idannonces;
+
+Alter table AnnonceAccepter add column commission double precision;
+update annonceaccepter set commission=20;
