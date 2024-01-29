@@ -1,12 +1,25 @@
 package com.projetS5.back.model;
 
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.Builder;
+import lombok.Data;
 
+@Builder
+@Data
 @Entity
-public class Utilisateur{
+public class Utilisateur implements UserDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long idUtilisateur; 
@@ -18,7 +31,23 @@ public class Utilisateur{
 	int contact; 
 	Boolean isAdmin ; 
 
+    @Enumerated(EnumType.STRING)
+    Role role;
+    
 	public Utilisateur(Long idUtilisateur, String nom, String prenom, String email, String adresse, String passwords,
+            int contact, Boolean isAdmin, Role role) {
+        this.idUtilisateur = idUtilisateur;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.adresse = adresse;
+        this.passwords = passwords;
+        this.contact = contact;
+        this.isAdmin = isAdmin;
+        this.role = role;
+    }
+
+    public Utilisateur(Long idUtilisateur, String nom, String prenom, String email, String adresse, String passwords,
             int contact, Boolean isAdmin) {
         this.idUtilisateur = idUtilisateur;
         this.nom = nom;
@@ -109,7 +138,41 @@ public class Utilisateur{
     public void setIsAdmin(Boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
-	
-        
-        
+
+
+    @Override
+    public String getPassword() {
+        return passwords;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+	@Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
 }

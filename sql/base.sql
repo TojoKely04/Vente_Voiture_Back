@@ -225,3 +225,7 @@ LEFT JOIN
 
 Alter table AnnonceAccepter add column commission double precision;
 update annonceaccepter set commission=20;
+
+
+-- 
+alter table utilisateur add column role varchar;
