@@ -24,6 +24,7 @@ public class BackApplication {
 
 		source.registerCorsConfiguration("/**", config);
 		return new CorsFilter(source);
+	}
 	public static void main(String[] args) {
 		SpringApplication.run(BackApplication.class, args);
 	}
