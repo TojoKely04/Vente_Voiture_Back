@@ -56,17 +56,11 @@ public class Annonces {
     private double prix;
     private String images;
     private Date datePublication;
-
-    public Annonces(Long idAnnonce) {
-        this.idAnnonce = idAnnonce;
-    }
-
-    public Annonces() {
-    }
+    private double kilometrage;
 
     public Annonces(Long idAnnonce, Utilisateur utilisateur, String nom, String descriptions, Categorie categorie,
             Marque marque, String couleur, Moteur moteur, Date anneeSortie, BoiteVitesse boiteVitesse, Energie energie,
-            double prix, String images, Date datePublication) {
+            double prix, String images, Date datePublication, double kilometrage) {
         this.idAnnonce = idAnnonce;
         this.utilisateur = utilisateur;
         this.nom = nom;
@@ -81,7 +75,25 @@ public class Annonces {
         this.prix = prix;
         this.images = images;
         this.datePublication = datePublication;
+        this.kilometrage = kilometrage;
     }
+
+    public double getKilometrage() {
+        return kilometrage;
+    }
+
+    public void setKilometrage(double kilometrage) {
+        this.kilometrage = kilometrage;
+    }
+
+    public Annonces(Long idAnnonce) {
+        this.idAnnonce = idAnnonce;
+    }
+
+    public Annonces() {
+    }
+
+
 
 
     public Long getIdAnnonce() {

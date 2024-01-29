@@ -25,8 +25,12 @@ public class MessageController {
         return messageServie.save(message);
     }
     @GetMapping("/{sender}/{receiver}")
-    public List<Message> getBooks(@PathVariable int sender , @PathVariable int receiver) {
-        return messageServie.getMessages(sender,receiver);
+    public List<Message> getMessage(@PathVariable int sender , @PathVariable int receiver) {
+        return messageServie.getMessage(sender,receiver);
+    }
+    @GetMapping("/{user}")
+    public List<Message> getMessages(@PathVariable int user ) {
+        return messageServie.getMessages(user);
     }
  
     @DeleteMapping("/delete/{id}")

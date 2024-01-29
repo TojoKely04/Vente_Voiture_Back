@@ -27,15 +27,15 @@ public class MessageServie {
         return messageRepository.save(message);
     }
 
-    // public List<Message> getMessages() {
-    //     return messageRepository.findAll();
-    // }
+    public List<Message> getMessages(int iduser) {
+        return messageRepository.getLastMessages();
+    }
 
     public void deleteMessage(String id){
         messageRepository.deleteById(id);
     }
 
-    public List<Message> getMessages(int sender , int receiver) {
+    public List<Message> getMessage(int sender , int receiver) {
         Criteria senderCriteria = new Criteria().andOperator(Criteria.where("idSender").is(sender), Criteria.where("idReceiver").is(receiver));
         Criteria receiverCriteria = new Criteria().andOperator(Criteria.where("idReceiver").is(sender), Criteria.where("idSender").is(receiver));
 

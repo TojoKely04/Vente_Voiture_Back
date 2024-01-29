@@ -97,7 +97,7 @@ create table AnnonceRefuser(
     FOREIGN KEY (idAnnonces) REFERENCES annonces(idAnnonces)
 );
 -------------------------------------------------------------------------
-CREATE VIEW AnnoncesNonLues AS
+CREATE OR REPLACE VIEW AnnoncesNonLues AS
 SELECT * FROM Annonces where 
 idAnnonces not in(SELECT idAnnonces from AnnonceRefuser) and 
 idAnnonces not in (SELECT idAnnonces from AnnonceAccepter);  
@@ -192,8 +192,6 @@ CREATE VIEW statistiqueDates AS
     FROM annoncevendu
     GROUP BY dates;
 
-
-
 CREATE VIEW annoncedispo AS
 SELECT a.*
 FROM annonces AS a
@@ -202,3 +200,25 @@ LEFT JOIN annoncevendu AS av ON a.idannonces = av.idannonces
 WHERE aa.idannonces IS NOT NULL
 AND av.idannonces IS NULL;
 
+-- 29-01-2024
+ALTER TABLE annonces add column kilometrage double precision;
+
+CREATE OR REPLACE VIEW AnnoncesNonLues AS
+SELECT * FROM Annonces where 
+idAnnonces not in(SELECT idAnnonces from AnnonceRefuser) and 
+idAnnonces not in (SELECT idAnnonces from AnnonceAccepter);
+
+CREATE OR REPLACE VIEW AnnoncesStatus AS
+SELECT 
+    a.*,
+    CASE 
+        WHEN aa.idannonces IS NOT NULL AND av.idannonces IS NOT NULL THEN 10
+        WHEN aa.idannonces IS NOT NULL AND av.idannonces IS NULL THEN 5
+        ELSE 0
+    END AS status
+FROM 
+    annonces a
+LEFT JOIN 
+    annonceAccepter aa ON a.idannonces = aa.idannonces
+LEFT JOIN 
+    annoncevendu av ON a.idannonces = av.idannonces;
