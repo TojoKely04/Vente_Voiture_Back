@@ -77,7 +77,7 @@ create table annonces(
     FOREIGN KEY (idMarque) REFERENCES marque(idMarque), 
     FOREIGN KEY (idCategorie) REFERENCES categorie(idCategorie),
     FOREIGN KEY (idUtilisateur) REFERENCES utilisateur(idUtilisateur)
-) ; 
+);
 INSERT INTO annonces VALUES (default , 2 , 'Voiture 1' , 'Description 1' , 1 , 1 , 'Rouge' , 1 , '01-01-2012' , 1 , 1 , 2000, 'Image 1' , '2023-01-19');
 INSERT INTO annonces VALUES (default , 3 , 'Voiture 2' , 'Description 2' , 2 , 2 , 'Bleu' , 2 , '01-01-2012' , 2 , 2 , 2000, 'Image 2' , '2023-01-19');
 INSERT INTO annonces VALUES (default , 3 , 'Voiture 3' , 'Description 3' , 2 , 2 , 'Noir' , 2 , '01-01-2012' , 2 , 2 , 2000, 'Image 2' , '2023-01-19');
