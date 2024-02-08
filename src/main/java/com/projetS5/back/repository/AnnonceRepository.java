@@ -18,7 +18,7 @@ public interface AnnonceRepository extends JpaRepository<Annonces, Long> {
 
     List<Annonces> findByutilisateur(Utilisateur utilisateur);
 
-    @Query(value = "SELECT a.* FROM annonces as a JOIN favoris as f on a.idannonces = f.idannonces where a.idannonces = f.idannonces and a.idUtilisateur = :idUser",nativeQuery= true)
+    @Query(value = "SELECT DISTINCT a.* FROM annonces as a JOIN favoris as f on a.idannonces = f.idannonces where a.idUtilisateur = :idUser",nativeQuery= true)
     List<Annonces> findFavorisByUser(@Param("idUser") Long idUser);
     
 

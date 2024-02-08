@@ -230,5 +230,9 @@ update annonceaccepter set commission=20;
 -- 
 alter table utilisateur add column role varchar;
 
-CREATE OR REPLACE VIEW annoncedispo AS
-SELECT 
+
+SELECT DISTINCT a.* 
+FROM annonces as a 
+JOIN favoris as f 
+on a.idannonces = f.idannonces 
+where f.idUtilisateur = :idUser
