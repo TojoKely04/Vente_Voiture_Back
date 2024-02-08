@@ -230,3 +230,5 @@ update annonceaccepter set commission=20;
 -- 
 alter table utilisateur add column role varchar;
 
+CREATE OR REPLACE VIEW annoncedispo AS
+SELECT 
