@@ -3,6 +3,7 @@ package com.projetS5.back.controller;
 import com.projetS5.back.model.Annonces;
 import com.projetS5.back.model.AnnoncesStatus;
 import com.projetS5.back.model.Utilisateur;
+import com.projetS5.back.repository.UtilisateurRepository;
 import com.projetS5.back.service.AnnoncesService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -18,6 +20,11 @@ public class AnnoncesController {
 
     @Autowired
     private AnnoncesService annoncesService;
+    @Autowired
+    private com.projetS5.back.config.JwtService jwtService;
+    @Autowired
+    private UtilisateurRepository repository;
+
 
     @GetMapping
     public List<Annonces> findAll() {
@@ -67,9 +74,10 @@ public class AnnoncesController {
         return  annoncesService.getAnnonceDispo();
     }
 
-    @GetMapping("Userfavoris/{id}")
-    public List<Annonces> findFavorisByUser(@PathVariable Long id) {
-        return annoncesService.findFavorisByUser(id);
+    @GetMapping("Userfavoris/{token}")
+    public List<Annonces> findFavorisByUser(@PathVariable String token) {
+        Optional<Utilisateur> u = repository.findByEmail(jwtService.extractUsername(token)); 
+        return annoncesService.findFavorisByUser(u.get().getIdUtilisateur());
 
     }
     
