@@ -42,13 +42,6 @@ public class AnnoncesController {
         return annoncesService.findById(id);
     }
 
-    @GetMapping("/Utilisateur/{id}")
-    public List<Annonces> getAnnoncesUtilisateurs(@PathVariable Long id) {
-        Utilisateur u = new Utilisateur();
-        u.setIdUtilisateur(id);
-        return annoncesService.findByUtilisateur(u);
-    }
-
     // create a book
     @ResponseStatus(HttpStatus.CREATED) // 201
     @PostMapping
@@ -79,6 +72,13 @@ public class AnnoncesController {
         Optional<Utilisateur> u = repository.findByEmail(jwtService.extractUsername(token)); 
         return annoncesService.findFavorisByUser(u.get().getIdUtilisateur());
 
+    }
+
+    @GetMapping("/Utilisateur/{token}")
+    public List<Annonces> getAnnoncesUtilisateurs(@PathVariable String token) {
+        Optional<Utilisateur> ou = repository.findByEmail(jwtService.extractUsername(token));
+        Utilisateur u = ou.get();
+        return annoncesService.findByUtilisateur(u);
     }
     
     @GetMapping("/status/{id}")
