@@ -40,6 +40,7 @@ public class AnnoncesVenduesController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public AnnoncesVendues create (@RequestBody AnnoncesVendues annonces){
+        annonces.setDates(Date.valueOf(LocalDate.now()));
         return annoncesVenduesService.save(annonces);
     }
 
