@@ -1,2 +1,0 @@
-psql -U postgres -d voiture -h viaduct.proxy.rlwy.net -p 55633
-1ffDC3abFda441G*e26*4AC*4C-3ac5C
