@@ -45,7 +45,7 @@ public class AnnoncesController {
     // create a book
     @ResponseStatus(HttpStatus.CREATED) // 201
     @PostMapping("/{token}")
-    public Annonces create(@RequestBody Annonces book , @PathVariable String token) {
+    public Annonces create(@PathVariable String token , @RequestBody Annonces book) {
         String email = jwtService.extractUsername(token);
         Optional<Utilisateur> optional = repository.findByEmail(email);
         book.setUtilisateur(optional.get());
