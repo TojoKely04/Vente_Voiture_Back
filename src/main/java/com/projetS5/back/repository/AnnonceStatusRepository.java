@@ -9,6 +9,6 @@ import org.springframework.data.repository.query.Param;
 import com.projetS5.back.model.AnnoncesStatus;
 
 public interface AnnonceStatusRepository extends JpaRepository<AnnoncesStatus,Long> {
-    @Query(value = "select * from annoncesstatus a where a.idUtilisateur = :idUser",nativeQuery= true)
+    @Query(value = "select * from annoncesstatus a where a.idannonces = :idUser",nativeQuery= true)
     List<AnnoncesStatus> findAnnoncesStatusUser(@Param("idUser") Long idUser);
 }
