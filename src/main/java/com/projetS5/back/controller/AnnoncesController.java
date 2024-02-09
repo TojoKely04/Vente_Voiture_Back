@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,6 +51,7 @@ public class AnnoncesController {
         String email = jwtService.extractUsername(token);
         Optional<Utilisateur> optional = repository.findByEmail(email);
         book.setUtilisateur(optional.get());
+        book.setDatePublication(Date.valueOf(LocalDate.now()));
         return annoncesService.save(book);
     }
 
