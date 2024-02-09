@@ -85,7 +85,7 @@ public class AnnoncesController {
     }
     
     @GetMapping("/status/{id}")
-    public List<AnnoncesStatus> getAnnoncesStatusUser(@PathVariable Long id){
+    public AnnoncesStatus getAnnoncesStatusUser(@PathVariable Long id){
         return annoncesService.getAnnoncesStatus(id);
     }
 }

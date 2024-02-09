@@ -17,7 +17,7 @@ public class AnnoncesService {
     @Autowired
     private AnnonceStatusRepository annonceStatusRepository;
 
-    public List<AnnoncesStatus> getAnnoncesStatus(Long id){
+    public AnnoncesStatus getAnnoncesStatus(Long id){
         return annonceStatusRepository.findAnnoncesStatusUser(id);
     }
 
